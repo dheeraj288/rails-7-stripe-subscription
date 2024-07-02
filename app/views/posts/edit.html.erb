@@ -1,0 +1,39 @@
+<div class="edit-post-container mt-5">
+  <h1 class="page-title">Editing Post</h1>
+
+  <div class="post-form-container">
+    <%= render "form", post: @post %>
+  </div>
+
+  <div class="navigation-links">
+    <%= link_to "Show this post", @post, class: "btn btn-primary" %>
+    <%= link_to "Back to posts", posts_path, class: " btn btn-secondary" %>
+  </div>
+</div>
+
+<style>
+  /* Import Google Fonts */
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+  .edit-post-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: #e7eff9;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-family: 'Roboto', sans-serif;
+  }
+
+  .page-title {
+    text-align: center;
+    font-size: 28px;
+    color: #333;
+    margin-bottom: 30px;
+    font-weight: 500;
+  }
+
+  .post-form-container {
+    margin-bottom: 30px;
+  }  
+</style>

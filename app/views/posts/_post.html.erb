@@ -1,0 +1,40 @@
+<div id="<%= dom_id(post) %>" class="post-card">
+  <p class="post-title">
+    <strong>Title:</strong>
+    <span><%= post.title %></span>
+  </p>
+
+  <p class="post-premium">
+    <strong>Premium:</strong>
+    <span><%= post.premium %></span>
+  </p>
+</div>
+
+
+<style>
+  .post-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px 0;
+  max-width: 600px;
+}
+
+.post-title,
+.post-premium {
+  font-size: 18px;
+  margin: 10px 0;
+}
+
+.post-title strong,
+.post-premium strong {
+  color: #333;
+}
+
+.post-title span,
+.post-premium span {
+  color: #555;
+}
+
+</style>

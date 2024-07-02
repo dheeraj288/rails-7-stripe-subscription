@@ -1,0 +1,36 @@
+<div class="post-container">
+  <p class="notice"><%= notice %></p>
+
+  <%= render @post %>
+
+  <div class="post-actions">
+    <%= link_to "Edit this post", edit_post_path(@post), class: "btn btn-primary" %>
+    <%= link_to "Back to posts", posts_path, class: "btn btn-secondary" %>
+    
+   <%= link_to "Destroy this post",
+              @post,
+              data: { turbo_method: :delete },
+              class: "btn btn-danger" %>
+  </div>
+</div>
+
+
+<style>
+  .post-container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+.notice {
+  color: green;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+</style>

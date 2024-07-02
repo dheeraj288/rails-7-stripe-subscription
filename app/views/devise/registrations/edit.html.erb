@@ -1,0 +1,105 @@
+<!-- app/views/devise/registrations/edit.html.erb -->
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="card-title">Edit <%= resource_name.to_s.humanize %></h2>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+
+            <div class="form-group">
+              <%= f.label :email %>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+            </div>
+
+            <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+              <div class="alert alert-info" role="alert">
+                Currently waiting confirmation for: <%= resource.unconfirmed_email %>
+              </div>
+            <% end %>
+
+            <div class="form-group">
+              <%= f.label :password %>
+              <%= f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Leave blank if not changing" %>
+              <% if @minimum_password_length %>
+                <small class="form-text text-muted"><%= @minimum_password_length %> characters minimum</small>
+              <% end %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confirmation %>
+              <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :current_password %>
+              <%= f.password_field :current_password, autocomplete: "current-password", class: "form-control", placeholder: "Enter your current password" %>
+            </div>
+
+            <div class="actions text-center">
+              <%= f.submit "Update", class: "btn btn-primary mt-3" %>
+            </div>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="card mt-4">
+        <div class="card-body">
+          <h3 class="card-title">Cancel my account</h3>
+          <p class="card-text">Unhappy with your account? This action cannot be undone.</p>
+          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?", turbo_confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger btn-lg btn-block" %>
+        </div>
+      </div>
+
+      <%= link_to "Back", :back, class: "btn btn-secondary mt-3 btn-block" %>
+    </div>
+  </div>
+</div>
+
+
+<style>
+  /* app/assets/stylesheets/application.css */
+
+.card {
+  margin-bottom: 20px;
+}
+
+.btn-lg {
+  padding: 12px 24px;
+  font-size: 18px;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  width: 15rem;
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+  border-color: #0056b3;
+}
+
+.btn-danger {
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
+
+.btn-danger:hover {
+  background-color: #c82333;
+  border-color: #c82333;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #5a6268;
+}
+
+</style>

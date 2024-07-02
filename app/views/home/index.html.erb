@@ -1,0 +1,92 @@
+<div class="home">
+  <h2 class="box">Welcome to My Stripe Application</h2>
+  <% if current_user %>
+  <%= link_to "Log Out", destroy_user_session_path, data: {turbo_method: :delete,turbo_confirm: "Are you sure?" }, class: "btn btn-danger"  %>
+  <% else %>
+  <%= link_to "Sign Up", new_user_registration_path, class: "btn btn-success"%>
+  <%= link_to "Sign In", new_user_session_path, class: "btn btn-secondary"%>
+  <% end %>
+
+</div>
+
+<div class="customer-info-container">
+  <% if signed_in? %>
+    <div class="customer-info-card">
+      <div class="customer-info-item">
+        <span class="label">Customer ID:</span>
+        <span class="value"><%= current_user.stripe_customer_id %></span>
+      </div>
+      <div class="customer-info-item">
+        <span class="label">Plan:</span>
+        <span class="value"><%= current_user.plan %></span>
+      </div>
+      <div class="customer-info-item">
+        <span class="label">Subscription Status:</span>
+        <span class="value"><%= current_user.subscription_status %></span>
+      </div>
+      <div class="customer-info-item">
+        <span class="label">Subscription Ends At:</span>
+        <span class="value"><%= current_user.subscription_ends_at %></span>
+      </div>
+      <div class="customer-info-item">
+        <span class="label">Active:</span>
+        <span class="value"><%= current_user.active? %></span>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+
+
+<style>
+
+  *{
+    margin: 0;
+    padding: 0;
+  }
+
+  .home {
+    text-align: center;
+    margin-top: 1rem;
+    text-transform: capitalize;
+    margin-top: 5rem;
+
+  }
+
+  .customer-info-container {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+}
+
+.customer-info-card {
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 400px;
+}
+
+.customer-info-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.customer-info-item:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-weight: bold;
+  color: #333;
+}
+
+.value {
+  color: #555;
+}
+
+
+</style>

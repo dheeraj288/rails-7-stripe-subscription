@@ -1,0 +1,96 @@
+<%= form_with(model: post, local: true, class: "post-form") do |form| %>
+  <% if post.errors.any? %>
+    <div class="error-messages">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+      <ul>
+        <% post.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title, class: "form-label" %>
+    <%= form.text_field :title, class: "form-input" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :premium, class: "form-label" %>
+    <%= form.check_box :premium, class: "form-checkbox" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.submit "Save Post", class: "form-submit" %>
+  </div>
+<% end %>
+
+
+<style>
+  .post-form {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.error-messages {
+  color: red;
+  margin-bottom: 20px;
+}
+
+.error-messages h2 {
+  margin-bottom: 10px;
+}
+
+.error-messages ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.error-messages li {
+  margin-bottom: 5px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #333;
+}
+
+.form-input,
+.form-checkbox {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-checkbox {
+  width: auto;
+}
+
+.form-submit {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.form-submit:hover {
+  background-color: #0056b3;
+}
+
+</style>
